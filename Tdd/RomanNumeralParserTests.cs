@@ -18,7 +18,7 @@ namespace Tdd
         }
     }
 
-    internal class RomanNumeralParser
+    public class RomanNumeralParser
     {
         private static readonly Dictionary<char, int> map = new()
         {
@@ -31,7 +31,7 @@ namespace Tdd
             { 'M', 1000 }
         };
 
-        internal static int Parse(string romanNumeral)
+        public static int Parse(string romanNumeral)
         {
             int result = 0;
             for (int i = 0; i< romanNumeral.Length; i++)

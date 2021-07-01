@@ -15,7 +15,7 @@ namespace Tdd
             Assert.Equal(expected, GetFibonacci(index));
         }
 
-        private static Dictionary<int, int> _cache = new Dictionary<int, int>();
+        private static readonly Dictionary<int, int> _cache = new();
 
         private static int GetFibonacci(int index)
         {

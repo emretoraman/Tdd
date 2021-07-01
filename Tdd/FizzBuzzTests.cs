@@ -17,7 +17,7 @@ namespace Tdd
             Assert.Equal(expected, GetFizzBuzz(number));
         }
 
-        private string GetFizzBuzz(int number)
+        private static string GetFizzBuzz(int number)
         {
             if (number % 15 == 0) return "FizzBuzz";
             if (number % 3 == 0) return "Fizz";

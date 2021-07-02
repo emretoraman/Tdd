@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Xunit;
 
-namespace Tdd
+namespace Tdd.TddInAction
 {
     public class FibonacciTests
     {

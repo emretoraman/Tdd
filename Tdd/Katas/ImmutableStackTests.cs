@@ -1,7 +1,7 @@
 ﻿using System;
 using Xunit;
 
-namespace Tdd
+namespace Tdd.Katas
 {
     public class ImmutableStackTests
     {

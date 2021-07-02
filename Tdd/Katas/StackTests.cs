@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 
-namespace Tdd
+namespace Tdd.Katas
 {
     public class StackTests
     {

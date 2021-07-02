@@ -2,7 +2,7 @@
 using System.Linq;
 using Xunit;
 
-namespace Tdd
+namespace Tdd.TddInAction
 {
     public class TicTacToeTests
     {

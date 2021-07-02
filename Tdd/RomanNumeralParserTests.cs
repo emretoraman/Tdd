@@ -20,7 +20,7 @@ namespace Tdd
 
     public class RomanNumeralParser
     {
-        private static readonly Dictionary<char, int> map = new()
+        private static readonly Dictionary<char, int> _map = new()
         {
             { 'I', 1 },
             { 'V', 5 },
@@ -36,13 +36,13 @@ namespace Tdd
             int result = 0;
             for (int i = 0; i< romanNumeral.Length; i++)
             {
-                if (i + 1 < romanNumeral.Length && map[romanNumeral[i]] < map[romanNumeral[i + 1]])
+                if (i + 1 < romanNumeral.Length && _map[romanNumeral[i]] < _map[romanNumeral[i + 1]])
                 {
-                    result -= map[romanNumeral[i]];
+                    result -= _map[romanNumeral[i]];
                 }
                 else
                 {
-                    result += map[romanNumeral[i]];
+                    result += _map[romanNumeral[i]];
                 }
             }
 

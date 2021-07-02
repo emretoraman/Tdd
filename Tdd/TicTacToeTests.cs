@@ -76,7 +76,7 @@ namespace Tdd
             Assert.Equal(expected, ticTacToe.GetWinner());
         }
 
-        private void MakeMoves(TicTacToe ticTacToe, params int[] indexes)
+        private static void MakeMoves(TicTacToe ticTacToe, params int[] indexes)
         {
             for (int i = 0; i < indexes.Length; i++)
             {

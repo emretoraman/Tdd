@@ -1,4 +1,5 @@
-﻿using Tdd.TestDoubles.HandRolledMocks;
+﻿using Moq;
+using Tdd.TestDoubles.HandRolledMocks;
 using Xunit;
 
 namespace Tdd.TestDoubles
@@ -40,6 +41,38 @@ namespace Tdd.TestDoubles
             customer.GetWage(1);
 
             Assert.True(dbGatewayMock.VerifyCalledWithCorrectId(1));
+        }
+    }
+
+    public class CustomerTestsWithMockingFramework
+    {
+        [Fact]
+        public void GetWage_WhenPayHourly_ReturnsCorrectWage()
+        {
+            Mock<IDbGateway> mockDbGateway = new();
+            mockDbGateway
+                .Setup(d => d.GetWorkingStatistics(It.IsAny<int>()))
+                .Returns(new WorkingStatistics { PayHourly = true, HourlySalary = 100, WorkingHours = 10 });
+
+            const decimal expected = 100 * 10;
+
+            Customer customer = new(mockDbGateway.Object, new Mock<ILogger>().Object);
+
+            Assert.Equal(expected, customer.GetWage(1));
+        }
+
+        [Fact]
+        public void GetWage_WithId_PassesCorrectId()
+        {
+            Mock<IDbGateway> mockDbGateway = new();
+            mockDbGateway
+                .Setup(d => d.GetWorkingStatistics(It.IsAny<int>()))
+                .Returns(new WorkingStatistics { });
+
+            Customer customer = new(mockDbGateway.Object, new Mock<ILogger>().Object);
+            customer.GetWage(1);
+
+            mockDbGateway.Verify(d => d.GetWorkingStatistics(1), Times.Once);
         }
     }
 }

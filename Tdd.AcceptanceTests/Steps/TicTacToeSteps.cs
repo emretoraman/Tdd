@@ -8,6 +8,7 @@ namespace Tdd.AcceptanceTests.Steps
     public class TicTacToeSteps
     {
         private TicTacToe _ticTacToe;
+
         [Given(@"I started a new game")]
         public void GivenIStartedANewGame()
         {

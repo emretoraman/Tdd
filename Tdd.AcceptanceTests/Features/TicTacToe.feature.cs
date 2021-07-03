@@ -81,14 +81,14 @@ namespace Tdd.AcceptanceTests.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Play game")]
+        [Xunit.SkippableFactAttribute(DisplayName="Play a game")]
         [Xunit.TraitAttribute("FeatureTitle", "TicTacToe")]
-        [Xunit.TraitAttribute("Description", "Play game")]
-        public virtual void PlayGame()
+        [Xunit.TraitAttribute("Description", "Play a game")]
+        public virtual void PlayAGame()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Play game", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Play a game", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

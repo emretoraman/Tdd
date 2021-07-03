@@ -3,7 +3,7 @@
 	As a gamer
 	I want to be able to put crosses or zeroes and determine a winner
 
-Scenario: Play game
+Scenario: Play a game
 	Given I started a new game
 	When I put three crosses in a row
 	Then I should win

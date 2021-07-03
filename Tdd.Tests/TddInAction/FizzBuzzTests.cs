@@ -1,6 +1,7 @@
-﻿using Xunit;
+﻿using Tdd.TddInAction;
+using Xunit;
 
-namespace Tdd.TddInAction
+namespace Tdd.Tests.TddInAction
 {
     public class FizzBuzzTests
     {
@@ -14,15 +15,7 @@ namespace Tdd.TddInAction
         [InlineData("FizzBuzz", 30)]
         public void GetFizzBuzz_Gets(string expected, int number)
         {
-            Assert.Equal(expected, GetFizzBuzz(number));
-        }
-
-        private static string GetFizzBuzz(int number)
-        {
-            if (number % 15 == 0) return "FizzBuzz";
-            if (number % 3 == 0) return "Fizz";
-            if (number % 5 == 0) return "Buzz";
-            return "";
+            Assert.Equal(expected, FizzBuzz.GetFizzBuzz(number));
         }
     }
 }

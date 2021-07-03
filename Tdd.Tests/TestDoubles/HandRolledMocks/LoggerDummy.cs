@@ -1,4 +1,6 @@
-﻿namespace Tdd.TestDoubles.HandRolledMocks
+﻿using Tdd.TestDoubles;
+
+namespace Tdd.Tests.TestDoubles.HandRolledMocks
 {
     public class LoggerDummy : ILogger
     {

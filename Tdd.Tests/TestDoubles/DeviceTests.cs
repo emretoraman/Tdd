@@ -1,9 +1,9 @@
 ﻿using Moq;
-using System;
 using System.Threading.Tasks;
+using Tdd.TestDoubles;
 using Xunit;
 
-namespace Tdd.TestDoubles
+namespace Tdd.Tests.TestDoubles
 {
     public class DeviceTests
     {

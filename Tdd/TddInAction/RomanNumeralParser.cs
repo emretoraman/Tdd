@@ -1,23 +1,7 @@
 ﻿using System.Collections.Generic;
-using Xunit;
 
 namespace Tdd.TddInAction
 {
-    public class RomanNumeralParserTests
-    {
-        [Theory]
-        [InlineData(1, "I")]
-        [InlineData(2, "II")]
-        [InlineData(4, "IV")]
-        [InlineData(7, "VII")]
-        [InlineData(28, "XXVIII")]
-        [InlineData(49, "XLIX")]
-        public void Parse_Parses(int expected, string romanNumeral)
-        {
-            Assert.Equal(expected, RomanNumeralParser.Parse(romanNumeral));
-        }
-    }
-
     public class RomanNumeralParser
     {
         private static readonly Dictionary<char, int> _map = new()

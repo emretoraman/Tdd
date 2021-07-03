@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using Tdd.TestDoubles;
 
-namespace Tdd.TestDoubles.HandRolledMocks
+namespace Tdd.Tests.TestDoubles.HandRolledMocks
 {
     public class DbGatewayFake : IDbGateway
     {

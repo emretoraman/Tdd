@@ -1,9 +1,10 @@
 ﻿using Moq;
 using System;
-using Tdd.TestDoubles.HandRolledMocks;
+using Tdd.TestDoubles;
+using Tdd.Tests.TestDoubles.HandRolledMocks;
 using Xunit;
 
-namespace Tdd.TestDoubles
+namespace Tdd.Tests.TestDoubles
 {
     public class CustomerTests
     {

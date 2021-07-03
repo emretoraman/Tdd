@@ -1,4 +1,5 @@
 ﻿using Moq;
+using System;
 using Tdd.TestDoubles.HandRolledMocks;
 using Xunit;
 
@@ -50,8 +51,9 @@ namespace Tdd.TestDoubles
         public void GetWage_WhenPayHourly_ReturnsCorrectWage()
         {
             Mock<IDbGateway> mockDbGateway = new();
-            mockDbGateway
-                .Setup(d => d.GetWorkingStatistics(It.IsAny<int>()))
+            mockDbGateway.Setup(d => d.Connected)
+                .Returns(true);
+            mockDbGateway.Setup(d => d.GetWorkingStatistics(It.IsAny<int>()))
                 .Returns(new WorkingStatistics { PayHourly = true, HourlySalary = 100, WorkingHours = 10 });
 
             const decimal expected = 100 * 10;
@@ -65,14 +67,29 @@ namespace Tdd.TestDoubles
         public void GetWage_WithId_PassesCorrectId()
         {
             Mock<IDbGateway> mockDbGateway = new();
-            mockDbGateway
-                .Setup(d => d.GetWorkingStatistics(It.IsAny<int>()))
+            mockDbGateway.Setup(g => g.Connected)
+                .Returns(true);
+            mockDbGateway.Setup(g => g.GetWorkingStatistics(It.IsAny<int>()))
                 .Returns(new WorkingStatistics { });
 
             Customer customer = new(mockDbGateway.Object, new Mock<ILogger>().Object);
             customer.GetWage(1);
 
             mockDbGateway.Verify(d => d.GetWorkingStatistics(1), Times.Once);
+        }
+
+        [Fact]
+        public void GetWage_WhenGetWorkingStatisticsThrowsException_Returns0()
+        {
+            Mock<IDbGateway> mockDbGateway = new();
+            mockDbGateway.Setup(g => g.Connected)
+                .Returns(true);
+            mockDbGateway.Setup(g => g.GetWorkingStatistics(It.IsAny<int>()))
+                .Throws<Exception>();
+
+            Customer customer = new(mockDbGateway.Object, new Mock<ILogger>().Object);
+
+            Assert.Equal(0, customer.GetWage(1));
         }
     }
 }

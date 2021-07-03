@@ -13,7 +13,17 @@
 
         public int GetWage(int id)
         {
-            WorkingStatistics workingStatistics = _dbGateway.GetWorkingStatistics(id);
+            if (!_dbGateway.Connected) return 0;
+
+            WorkingStatistics workingStatistics;
+            try
+            {
+                workingStatistics = _dbGateway.GetWorkingStatistics(id);
+            }
+            catch 
+            {
+                return 0;
+            }
 
             int wage;
             if (workingStatistics.PayHourly)
@@ -38,6 +48,7 @@
     public interface IDbGateway
     {
         WorkingStatistics GetWorkingStatistics(int id);
+        bool Connected { get; }
     }
 
     public class WorkingStatistics

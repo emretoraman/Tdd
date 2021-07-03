@@ -4,6 +4,8 @@
     {
         private WorkingStatistics _workingStatistics;
 
+        public bool Connected => true;
+
         public WorkingStatistics GetWorkingStatistics(int id)
         {
             return _workingStatistics;

@@ -6,6 +6,8 @@
 
         public int Id { get; private set; }
 
+        public bool Connected => true;
+
         public WorkingStatistics GetWorkingStatistics(int id)
         {
             Id = id;

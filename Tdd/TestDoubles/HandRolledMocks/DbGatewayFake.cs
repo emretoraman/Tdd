@@ -11,6 +11,8 @@ namespace Tdd.TestDoubles.HandRolledMocks
             { 3, new WorkingStatistics { PayHourly = true, HourlySalary = 50, WorkingHours = 5 } }
         };
 
+        public bool Connected => true;
+
         public WorkingStatistics GetWorkingStatistics(int id)
         {
             return _storage[id];
